@@ -27,7 +27,7 @@ dispatch(fectComments())
     })
 }
 
-<button  onClick={onAddsongBox} title="add an song box">
+<button  onClick={onAddsongBox} title="add an song box here">
     <p>Click here to add a new song box</p>
 </button>
 <button onClick={()=>dispatch(fectComments())}><p>dispatch</p></button>
