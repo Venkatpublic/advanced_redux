@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useEffect } from "react";
 import PlaylistItem from "../components/playlistitems";
 import {connect} from 'react-redux'
 import { removeSong,addSong,Song } from "../redux/songs";
+import { fectComments } from "../redux";
 const PlayList =({dispatch,songs,deleteSong,addSongBox})=>{
   const onAddsongBox =()=>{
     dispatch(addSong(new Song(Math.random(),"Title here","Name of singer here")))
@@ -12,6 +13,9 @@ const PlayList =({dispatch,songs,deleteSong,addSongBox})=>{
   const onRemoveSong =(id)=>{
     dispatch(removeSong(id))
   }
+  useEffect(()=>{
+dispatch(fectComments())
+  },[])
     return(
         <div >
 <h1>your playlist</h1>
@@ -26,6 +30,7 @@ const PlayList =({dispatch,songs,deleteSong,addSongBox})=>{
 <button  onClick={onAddsongBox} title="add an song box">
     <p>Click here to add a new song box</p>
 </button>
+<button onClick={()=>dispatch(fectComments())}><p>dispatch</p></button>
         </div>
     )
 }
