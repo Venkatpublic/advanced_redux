@@ -1,7 +1,8 @@
 export class Comment {
-    constructor(id,postId,name,email,body){
+    constructor({postId,id,name,email,body}){
+      this.postId = postId
   this.id = id
-  this.postId = postId
+
   this.name = name
   this.email = email
   this.body = body
