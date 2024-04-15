@@ -3,6 +3,8 @@ import PlaylistItem from "../components/playlistitems";
 import {connect} from 'react-redux'
 import { removeSong,addSong,Song } from "../redux/songs";
 import { fectComments } from "../redux";
+import { useDebouncedCallback } from "use-debounce";
+import { searchSong } from "../redux/search/action";
 const PlayList =({dispatch,songs,deleteSong,addSongBox})=>{
   const onAddsongBox =()=>{
     dispatch(addSong(new Song(Math.random(),"Title here","Name of singer here")))
@@ -16,9 +18,19 @@ const PlayList =({dispatch,songs,deleteSong,addSongBox})=>{
   useEffect(()=>{
 dispatch(fectComments())
   },[])
+  const onDebouncerSearch = useDebouncedCallback(
+ 
+    (value) => {
+   dispatch(searchSong(value))
+    },
+   
+    500
+  );
+
     return(
         <div >
 <h1>your playlist</h1>
+<input onChange={(e)=>{onDebouncerSearch(e.target.value)}} placeholder="search song here"></input>
 {
     songs.map(item=>{
         return(
@@ -27,7 +39,7 @@ dispatch(fectComments())
     })
 }
 
-<button  onClick={onAddsongBox} title="add an song box">
+<button  onClick={onAddsongBox} title="add an song box here">
     <p>Click here to add a new song box</p>
 </button>
 <button onClick={()=>dispatch(fectComments())}><p>dispatch</p></button>

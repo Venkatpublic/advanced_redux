@@ -14,7 +14,7 @@ export const fetchCommentsFailure =()=>{
 export const fectComments =()=>{
     return async(dispatch)=>{
 dispatch(fetchCommentsStarted())
-return fetch("https://jsonplaceholder.typicode.com/comments?_limit=5")
+return fetch("https://jsonplaceholder.typicode.com/photos")
 .then(res=>res.json())
 .then(data=>data.map(item =>(new Comment(item))))
 .then(comments=> dispatch(fetchCommentsSuccess(comments)))
