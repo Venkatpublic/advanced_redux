@@ -5,7 +5,6 @@ import { removeSong,addSong,Song } from "../redux/songs";
 import { fectComments } from "../redux";
 import { useDebouncedCallback } from "use-debounce";
 import { searchSong } from "../redux/search/action";
-import { produce } from "immer";
 const PlayList =({dispatch,songs,deleteSong,addSongBox})=>{
   const onAddsongBox =()=>{
     dispatch(addSong(new Song(Math.random(),"Title here","Name of singer here")))
@@ -28,38 +27,6 @@ dispatch(fectComments())
     500
   );
 
-  const parent = [
-    {
-      name: "Kent",
-      business: "Real Estate",
-      finance: {
-        lastmonth_income: 50000000,
-        lastmonth_expense: 30000000,
-        paid_tax: 1200000,
-      },
-    },
-    {
-      name: "El-Bahar",
-      business: "Retail",
-      finance: {
-        lastmonth_income: 2000000,
-        lastmonth_expense: 500000,
-        paid_tax: 200000,
-      },
-    },
-    {
-      name: "Greenways",
-      business: "Cosntruction",
-      finance: {
-        lastmonth_income: 800000000,
-        lastmonth_expense: 20000000,
-        paid_tax: 31200000,
-      },
-    },
-  ];
-  const childOne = produce(parent,draft=>{draft[0].finance.lastmonth_income = draft[0].finance.lastmonth_income+100000 })
-
-  console.log(parent,childOne)
     return(
         <div >
 <h1>your playlist</h1>
