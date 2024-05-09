@@ -1,5 +1,6 @@
 import React, { useEffect, useState, useRef } from "react";
-import { produce } from "immer";
+import { produce,original, isDraft, current } from "immer";
+import { clock } from "./clock";
 
 const Profile = () => {
   const [data, setData] = useState([
@@ -53,22 +54,27 @@ const Profile = () => {
     },
   ]);
 
-  const renderCount = useRef(0);
 
-  useEffect(() => {
-    renderCount.current += 1;
-    console.log("Profile component re-rendered",renderCount.current);
-  });
+
+ 
 
   const onPress = (I,index) => {
 setData( produce(data,(draft)=>{draft[I].finance.audit_data.dates[index].is_okay = !draft[I].finance.audit_data.dates[index].is_okay}) )
   };
+const clock1 = new clock(22,45)
+const clock2  = clock1.tick()
+const baseState = {users: [{name: "Richie"}]}
+const nextState = produce(baseState, draftState => {
+  console.log(original(draftState).users[0].name,current(draftState).users[0].name)
+  draftState.users[0].name = 'Richie Rich'
 
+  console.log(original(draftState).users[0].name,current(draftState).users[0].name)
+})
   return (
     <div>
       <h1>this is profile screen</h1>
       <div>
-        <p>Profile component re-rendered {renderCount.current} times</p>
+      
         {data.map((item,I) => (
           <div key={item.name}>
             <s>{item.name}</s>
