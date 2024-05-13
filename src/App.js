@@ -9,13 +9,9 @@ import { useEffect } from 'react';
 import {enablePatches} from "immer"
 
 function App() {
-  enablePatches()
+
   return (
-    <div style={{display:'flex',flexDirection:'row'}} className="App" >
-     <Patches></Patches>
-    {/* <PlayList ></PlayList>
-    <Artists></Artists> */}
-    </div>
+<div></div>
   );
 }
 

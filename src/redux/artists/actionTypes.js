@@ -1,2 +1,0 @@
-export const ADD_ARTIST = '[ARTISTS] ADD_ARTIST'
-export const REMOVE_ARTIST = '[ARTISTS] REMOVE_ARTIST'
