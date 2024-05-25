@@ -14,8 +14,8 @@ const onAsync =()=>{
     return(
         <div>
             <p>home screen</p>
-            <button onClick={onNormal}><p>normal action</p></button>
-            <button onClick={onAsync}><p>async action</p></button>
+            <button onClick={onNormal}><p>normal action disaptch</p></button>
+            <button onClick={onAsync}><p>async action dispatch</p></button>
         </div>
     )
 }
