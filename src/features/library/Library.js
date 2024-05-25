@@ -8,7 +8,7 @@ const Library =()=>{
     const[newlibraryName,setnewlibraryName]=useState('')
     return(
         <div>
-            <input value={newlibraryName} onChange={e=>setnewlibraryName(e.target.value)} placeholder="Name for your library"></input>
+            <input value={newlibraryName} onChange={e=>setnewlibraryName(e.target.value)} placeholder="Give a Name for your library"></input>
             <button disabled={ !(newlibraryName?.length > 0)} onClick={()=>dispatch(addLibrary(newlibraryName))}><p>Add library</p></button>
        {
         libraries.map(item=> <p>{item}</p>)
