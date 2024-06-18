@@ -17,7 +17,7 @@ const Library = () => {
         disabled={!(newlibraryName?.length > 0)}
         onClick={() => dispatch(addLibrary(newlibraryName))}
       >
-        <p>Add library action</p>
+        <p>Add library</p>
       </button>
       {libraries.map((item) => (
         <p>{item}</p>
